@@ -17,7 +17,11 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: cd client/my-app & yarn install
+        run: |
+          cd client/my-app
+          yarn install 
 
-      - name: Run the client
-        run: cd client/my-app & yarn start
+      - name: Build the client
+        run: |
+          cd client/my-app
+          yarn build
