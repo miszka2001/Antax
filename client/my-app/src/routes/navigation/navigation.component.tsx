@@ -5,6 +5,7 @@ const Navigation = () => {
     return (
         <Fragment>
             <Link to="/shop">SHOP</Link>
+            <Link to="/auth">SINGIN</Link>
         </Fragment>
     )
 }
