@@ -7,11 +7,12 @@ const Navigation = () => {
         <Fragment>
             <NavigationContainer>
                 <NavLinks>
+            <NavLink to="/">HOME</NavLink>
             <NavLink to="/auth">SINGIN</NavLink>
             <NavLink to="/shop">SHOP</NavLink>
             </NavLinks>
-            <Outlet />
             </NavigationContainer>
+            <Outlet />
         </Fragment>
     )
 }
