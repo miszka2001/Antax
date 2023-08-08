@@ -1,5 +1,6 @@
 import CategoryItem from "../category-item/category-item.component"
 import { Category } from "../category-item/category-item.component"
+import { DirectoryContainer } from "./directory.styles"
 
 const categories: Category[] = [
     {
@@ -26,11 +27,11 @@ const categories: Category[] = [
 
 const Directory = () => {
     return (
-        <div className="categories-container">
+        <DirectoryContainer>
             {categories.map((category) => (
             <CategoryItem key={category.id} category={category} />
             ))}
-        </div>
+        </DirectoryContainer>
     )
 }
 export default Directory;
