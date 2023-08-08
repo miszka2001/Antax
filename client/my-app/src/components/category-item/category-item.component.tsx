@@ -1,7 +1,7 @@
 import React from "react";
 import { FC } from "react";
 
-type Category = {
+export type Category = {
     id: number;
     title: string;
 }
