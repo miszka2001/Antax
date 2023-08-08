@@ -1,45 +1,36 @@
 import { Outlet } from "react-router-dom";
+import  CategoryItem  from "../../components/category-item/category-item.component"
 
 const Home = () => {
+const categories = [
+    {
+        id: 1,
+        title: "T-shirts",
+    },
+    {
+        id: 2,
+        title: "Trousers",
+    },
+    {
+        id: 3,
+        title: "Hats",
+    },
+    {
+        id: 4,
+        title: "Mens",
+    },
+    {
+        id: 5,
+        title: "Womens",
+    },
+]
+
     return (
     <div>
         <div className="categories-container">
-            <div className="category-container">
-                {/* <img /> */}
-                <div className="category-body-container">
-                    <h2>T-shirt</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                {/* <img /> */}
-                <div className="category-body-container">
-                    <h2>Trousers</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                {/* <img /> */}
-                <div className="category-body-container">
-                    <h2>Glasses</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                {/* <img /> */}
-                <div className="category-body-container">
-                    <h2>Jackets</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-            <div className="category-container">
-                {/* <img /> */}
-                <div className="category-body-container">
-                    <h2>Hats</h2>
-                    <p>Shop now</p>
-                </div>
-            </div>
-
+            {categories.map((category) => (
+            <CategoryItem key={category.id} category={category} />
+            ))}
         </div>
         <Outlet />
     </div>
