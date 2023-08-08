@@ -1,5 +1,6 @@
 import React from "react";
 import { FC } from "react";
+import { CategoryBody, CategoryContainer } from "./category-item.styles";
 
 export type Category = {
     id: number;
@@ -11,13 +12,13 @@ type CategoryItemProps = {
 }
 
 const CategoryItem: FC<CategoryItemProps> = ({ category }) => {
-    return <div className="category-container">
+    return <CategoryContainer>
         {/* <img /> */}
-        <div className="category-body-container">
+        <CategoryBody>
             <h2>{category.title}</h2>
             <p>Shop now</p>
-        </div>
-    </div>;
+        </CategoryBody>
+    </CategoryContainer>;
 }
 
 export default CategoryItem;
