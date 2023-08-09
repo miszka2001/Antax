@@ -7,4 +7,3 @@ COPY . /app
 RUN pip3 install django
 
 CMD ["python3 manage.py runserver"]
-
