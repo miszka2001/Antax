@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "authentication",
     "rest_framework",
     "djoser",
 ]
@@ -102,9 +103,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ]
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
 }
 
 
@@ -130,4 +136,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = "auth.UserAccount"
+DJOSER = {"LOGIN_FIELD": "email"}
+
+AUTH_USER_MODEL = "authentication.UserAccount"
