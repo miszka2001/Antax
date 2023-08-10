@@ -9,6 +9,8 @@ from django.contrib.auth.models import (
 class UserAccountManager(BaseUserManager):
     def create_superuser(self, email, password, **other_fields):
         other_fields.setdefault("is_superuser", True)
+        other_fields.setdefault("is_staff", True)
+        other_fields.setdefault("is_active", True)
 
         if other_fields.get("is_superuser") is not True:
             raise ValueError("Superuser must be assigned to is_superuser=True.")
@@ -35,6 +37,7 @@ class UserAccountManager(BaseUserManager):
 
 class UserAccount(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
+    is_staff = models.BooleanField(default=False)
 
     objects = UserAccountManager()
 
