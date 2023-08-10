@@ -7,6 +7,19 @@ from django.contrib.auth.models import (
 
 
 class UserAccountManager(BaseUserManager):
+    def create_superuser(self, email, password, **other_fields):
+        other_fields.setdefault("is_superuser", True)
+
+        if other_fields.get("is_superuser") is not True:
+            raise ValueError("Superuser must be assigned to is_superuser=True.")
+        user = self.normalize_email(email)
+        user = self.model(email=email)
+
+        user.set_password(password)
+        user.save()
+
+        return user
+
     def create_user(self, email, password=None):
         if not email:
             raise ValueError("User must have an email address")
@@ -27,5 +40,5 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = "email"
 
-    def get_email(self):
+    def __str__(self):
         return self.email
